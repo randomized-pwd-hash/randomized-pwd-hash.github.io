@@ -1,4 +1,4 @@
-console.log("YOOOOOOO\n");
+console.log("The time is 3:50 pm.\n");
 
 $(document).on('login','#login',
         function(event){

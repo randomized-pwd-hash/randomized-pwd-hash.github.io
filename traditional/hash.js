@@ -1,7 +1,14 @@
+var hash = (function(){
 
-$(document).on('login',"#login",
-        function(event){
+    var module = {};
 
 
-        }
-    );
+    //controller methods
+    module.dummy = function(){
+        console.log("Ran dummy\n");
+        return;
+    }
+
+    return module;
+
+}());

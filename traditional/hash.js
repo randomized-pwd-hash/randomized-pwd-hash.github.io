@@ -7,7 +7,7 @@ var hash = (function(){
     module.dummy = function(){
         console.log("Ran dummy\n");
         return;
-    }
+    };
 
     return module;
 

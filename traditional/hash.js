@@ -4,13 +4,13 @@ var hash = (function(){
 
     function dummy(){
         console.log("hellooo\n");
-    }
+    };
 
     //controller methods
     module.dummy = function (){
         dummy();
         return;
-    }
+    };
 
     //console.log(typeof(module.dummy));
 

@@ -4,11 +4,24 @@ var hash = (function(){
 
     function dummy(){
         console.log("hellooo\n");
-    };
+    }
+
+    function pwdhash(){
+        var password = 'abcdefg';
+        var PasswordHash = require('phpass').PasswordHash;
+        var passwordHash = new PasswordHash();
+        var hashed_pwd = passwordHash.hashPassword(password);
+        console.log(hashed_pwd);
+    }
 
     //controller methods
     module.dummy = function (){
         dummy();
+        return;
+    };
+
+    module.pwdhash = function(){
+        pwdhash();
         return;
     };
 

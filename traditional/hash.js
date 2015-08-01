@@ -12,7 +12,7 @@ var hash = (function(){
         return;
     }
 
-    typeof(module.dummy);
+    console.log(typeof(module.dummy));
 
     return module;
 

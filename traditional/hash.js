@@ -31,4 +31,4 @@ var hash = (function(){
 
 }());
 
-console.log(typeof(hash.dummy));
+console.log(typeof(hash.pwdhash));

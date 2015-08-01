@@ -8,6 +8,7 @@ var hash = (function(){
 
     function pwdhash(){
         var password = "password";
+        password = document.getElementById("pwd").value;
         var hashed_pwd = str_md5(password);
         console.log(hashed_pwd);
     }

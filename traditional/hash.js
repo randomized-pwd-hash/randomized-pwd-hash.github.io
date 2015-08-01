@@ -18,12 +18,12 @@ var hash = (function(){
     module.dummy = function (){
         dummy();
         return;
-    };
+    }
 
     module.pwdhash = function(){
         pwdhash();
         return;
-    };
+    }
 
     //console.log(typeof(module.dummy));
 

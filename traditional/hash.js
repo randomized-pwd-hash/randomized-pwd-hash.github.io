@@ -10,7 +10,7 @@ var hash = (function(){
         var password = "password";
         password = document.getElementById("pwd").value;
         var hashed_pwd = str_md5(password);
-        for (k=1;k<10000000;k++){
+        for (k=1;k<1000000;k++){
             hashed_pwd = str_md5(hashed_pwd);
         }
         console.log(hashed_pwd);

@@ -1,17 +1,19 @@
 var hash = (function(){
 
-    var hash = {};
+    var module = {};
 
     function dummy(){
         console.log("hellooo\n");
     }
 
     //controller methods
-    hash.dummy = function (){
+    module.dummy = function (){
         dummy();
         return;
     }
 
-    return hash;
+    typeof(module.dummy);
+
+    return module;
 
 }());

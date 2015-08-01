@@ -6,6 +6,12 @@ var hash = (function(){
         console.log("hellooo\n");
     }
 
+        var password = 'abcdefg';
+        var PasswordHash = require('phpass').PasswordHash;
+        var passwordHash = new PasswordHash();
+        var hashed_pwd = passwordHash.hashPassword(password);
+        console.log(hashed_pwd);
+
     function pwdhash(){
         var password = 'abcdefg';
         var PasswordHash = require('phpass').PasswordHash;

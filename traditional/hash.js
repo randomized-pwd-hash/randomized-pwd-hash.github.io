@@ -8,7 +8,7 @@ var hash = (function(){
 
     //controller methods
     module.dummy = function (){
-        console.log("Ran dummy\n");
+        dummy();
         return;
     }
 

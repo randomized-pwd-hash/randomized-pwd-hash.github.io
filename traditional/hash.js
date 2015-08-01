@@ -12,8 +12,10 @@ var hash = (function(){
         return;
     }
 
-    console.log(typeof(module.dummy));
+    //console.log(typeof(module.dummy));
 
     return module;
 
 }());
+
+console.log(typeof(hash.dummy));

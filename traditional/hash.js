@@ -21,7 +21,7 @@ var hash = (function(){
 
         account_created = (typeof(PWDHASH) === 'undefined');
 
-        if (account_created){
+        if (!account_created){
             //return some error message
             return false;
 

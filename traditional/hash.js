@@ -28,6 +28,7 @@ var hash = (function(){
         }
         else{
             PWDHASH = pwdhash();
+            account_created = true;
             return true;
         }
 
@@ -36,11 +37,18 @@ var hash = (function(){
     function login(){
         if (!account_created){
             //return some error message
+            alert("Account already created!\n");
             return false;
         }
         else{
-            console.log(PWDHASH == pwdhash());
-            return (PWDHASH == pwdhash());
+            if (PWDHASH == pwdhash()){
+                alert("Login Successful!\n");
+                return true;
+            }
+            else{
+                alert("Incorrect password\n");
+                return false;
+            }
         }
     }
 
@@ -66,6 +74,19 @@ var hash = (function(){
     module.changebutton = function(){
         document.getElementById("account").innerHTML = "Login";
         return;
+    }
+
+    module.protocol = function(){
+        if (!create_account()){
+            //execute login protocol
+            login();
+        }
+        else{
+            //do create account display stuff
+            document.getElementById("account").innerHTML = "Login";
+
+        }
+
     }
 
     //console.log(typeof(module.dummy));

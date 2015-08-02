@@ -39,6 +39,7 @@ var hash = (function(){
             return false;
         }
         else{
+            console.log(PWDHASH == pwdhash());
             return (PWDHASH == pwdhash());
         }
     }
@@ -59,6 +60,11 @@ var hash = (function(){
 
     module.pwdhash = function(){
         pwdhash();
+        return;
+    }
+
+    module.changebutton = function(){
+        document.getElementById("account").innerHTML = "Login";
         return;
     }
 

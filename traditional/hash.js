@@ -1,7 +1,7 @@
 var hash = (function(){
 
     var module = {};
-    var ROUNDS = 10000000;
+    var ROUNDS = 1000000;
 
     var PWDHASH;
 
@@ -35,20 +35,14 @@ var hash = (function(){
     }
 
     function login(){
-        if (!account_created){
-            //return some error message
-            alert("Account already created!\n");
-            return false;
+
+        if (PWDHASH == pwdhash()){
+            alert("Login Successful!\n");
+            return true;
         }
         else{
-            if (PWDHASH == pwdhash()){
-                alert("Login Successful!\n");
-                return true;
-            }
-            else{
-                alert("Incorrect password\n");
-                return false;
-            }
+            alert("Incorrect password\n");
+            return false;
         }
     }
 

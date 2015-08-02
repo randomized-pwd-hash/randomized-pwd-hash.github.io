@@ -1,24 +1,59 @@
 var hash = (function(){
 
     var module = {};
+    var ROUNDS = 10000000;
 
-    function dummy(){
-        console.log("hellooo\n");
-    }
+    var PWDHASH;
+
+    var account_created; //boolean that says whether the account has been created or not
 
     function pwdhash(){
-        var password = "password";
-        password = document.getElementById("pwd").value;
+        var password = document.getElementById("pwd").value;
         var hashed_pwd = str_md5(password);
-        for (k=1;k<1000000;k++){
+        for (k=1;k<ROUNDS;k++){
             hashed_pwd = str_md5(hashed_pwd);
         }
         console.log(hashed_pwd);
+        return hashed_pwd;
     }
 
+    function create_account(){
+
+        account_created = (typeof(PWDHASH) === 'undefined');
+
+        if (account_created){
+            //return some error message
+            return false;
+
+        }
+        else{
+            PWDHASH = pwdhash();
+            return true;
+        }
+
+    }
+
+    function login(){
+        if (!account_created){
+            //return some error message
+            return false;
+        }
+        else{
+            return (PWDHASH == pwdhash());
+        }
+    }
+
+
     //controller methods
-    module.dummy = function (){
-        dummy();
+
+    module.create_account = function(){
+        create_account();
+        return;
+
+    }
+
+    module.login = function(){
+        login();
         return;
     }
 
@@ -33,4 +68,3 @@ var hash = (function(){
 
 }());
 
-console.log(typeof(hash.pwdhash));

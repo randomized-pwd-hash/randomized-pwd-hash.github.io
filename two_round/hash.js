@@ -14,9 +14,9 @@ var hash = (function(){
 
     var account_created; //boolean that says whether the account has been created or not
 
-    function pred1(hashval) return (hashval%2);
+    function pred1(hashval){ return (hashval%2);}
 
-    function pred2(hashval) return ((hashval+1)%2);
+    function pred2(hashval){ return ((hashval+1)%2);}
 
     function pwdhash(){
         var password = document.getElementById("pwd").value;

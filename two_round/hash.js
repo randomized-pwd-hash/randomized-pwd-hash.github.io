@@ -6,7 +6,7 @@ var hash = (function(){
     var PROB1 = 0.67;
     var PROB2 = 0.33;
     var alpha = 1.33;
-    var ROUNDS = round(DET_ROUNDS/alpha);
+    var ROUNDS = Math.round(DET_ROUNDS/alpha);
 
     var PWDHASH;
 

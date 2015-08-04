@@ -134,6 +134,7 @@ var hash = (function(){
             login();
         }
         else{
+            create_account();
             //do create account display stuff
             document.getElementById("account").innerHTML = "Login";
 

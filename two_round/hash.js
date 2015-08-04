@@ -55,8 +55,8 @@ var hash = (function(){
             console.log("Pred1 selected!\n");
         }
         else{
-            user_pred = function(hashval){ return pred2(hashval);};
-            console.log("Pred2 selected!\n");
+            user_pred = function(hashval){ return pred0(hashval);};
+            console.log("Pred0 selected!\n");
         }
 
     }

@@ -15,14 +15,14 @@ var hash = (function(){
     var account_created; //boolean that says whether the account has been created or not
 
     function pred1(hashval){
-        var last_char_value = hashval.charCodeAt(-1);
+        var last_char_value = hashval.charCodeAt(hashval.length-1);
         console.log("pred1\n");
         console.log(last_char_value);
         return (last_char_value%2 == 1);
     }
 
     function pred0(hashval){
-        var last_char_value = hashval.charCodeAt(-1);
+        var last_char_value = hashval.charCodeAt(hashval.length-1);
         console.log("pred0\n");
         console.log(last_char_value);
         return (last_char_value%2 == 0);

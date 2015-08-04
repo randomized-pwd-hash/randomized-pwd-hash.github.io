@@ -14,12 +14,19 @@ var hash = (function(){
 
     var account_created; //boolean that says whether the account has been created or not
 
-    function pred1(hashval){ return (hashval%2);}
+    function pred1(hashval){
+        var last_char_value = hashval.charCodeAt(-1);
+        return (last_char_value%2 == 1);
+    }
 
-    function pred2(hashval){ return ((hashval+1)%2);}
+    function pred0(hashval){
+        var last_char_value = hashval.charCodeAt(-1);
+        return (last_char_value%2 == 0);
+    }
 
-    function pwdhash(){
-        var password = document.getElementById("pwd").value;
+
+    function pwdhash(password){
+        //var password = document.getElementById("pwd").value;
         var hashed_pwd = str_md5(password);
         for (k=1;k<ROUNDS;k++){
             hashed_pwd = str_md5(hashed_pwd);
@@ -28,8 +35,30 @@ var hash = (function(){
         return hashed_pwd;
     }
 
-    function selectPredicate(pwd){
-        return;
+    function selectPredicate(password){
+        var pred_select = [];
+        var pred1_num = Math.round(100*PROB1);
+        var pred0_num = Math.round(100*PROB2);
+        var pwd_hash = pwdhash(password);
+        var pred1_tag = pred1(pwd_hash);
+        var pred0_tag = pred0(pwd_hash);
+
+        for (i=0;i<pred1_num;i++){
+            pred_select.push(pred1_tag);
+        }
+        for (j=0;j<pred0_num;j++){
+            pred_select.push(pred0_tag);
+        }
+        var index = Math.round(Math.random()*pred_select.length);
+        if (pred_select[index]){
+            user_pred = function(hashval){ return pred1(hashval);};
+            console.log("Pred1 selected!\n");
+        }
+        else{
+            user_pred = function(hashval){ return pred2(hashval);};
+            console.log("Pred2 selected!\n");
+        }
+
     }
 
     function create_account(){
@@ -42,7 +71,15 @@ var hash = (function(){
 
         }
         else{
-            PWDHASH = pwdhash();
+            var password = document.getElementById("pwd").value;
+            selectPredicate(password);
+            var hashval = pwdhash(password);
+            if (user_pred(hashval)){
+                PWDHASH = hashval;
+            }
+            else{
+                PWDHASH = pwdhash(hashval);
+            }
             account_created = true;
             return true;
         }
@@ -51,14 +88,20 @@ var hash = (function(){
 
     function login(){
 
-        if (PWDHASH == pwdhash()){
+        var password = document.getElementById("pwd").value;
+        var hashval = pwdhash(password);
+        if (!user_pred(hashval)){
+            hashval = pwdhash(hashval);
+        }
+        if (hashval == PWDHASH){
             alert("Login Successful!\n");
             return true;
         }
         else{
-            alert("Incorrect password\n");
+            alert("Incorrect Password.\n");
             return false;
         }
+
     }
 
 

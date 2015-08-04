@@ -31,7 +31,7 @@ var hash = (function(){
         for (k=1;k<ROUNDS;k++){
             hashed_pwd = str_md5(hashed_pwd);
         }
-        console.log(hashed_pwd);
+        //console.log(hashed_pwd);
         return hashed_pwd;
     }
 
@@ -92,6 +92,7 @@ var hash = (function(){
         var hashval = pwdhash(password);
         if (!user_pred(hashval)){
             hashval = pwdhash(hashval);
+            console.log("hashing twice\n");
         }
         if (hashval == PWDHASH){
             alert("Login Successful!\n");

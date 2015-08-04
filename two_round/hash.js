@@ -129,7 +129,7 @@ var hash = (function(){
     }
 
     module.protocol = function(){
-        if (!create_account()){
+        if (account_created){
             //execute login protocol
             login();
         }

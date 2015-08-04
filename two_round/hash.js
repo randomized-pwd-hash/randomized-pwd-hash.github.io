@@ -16,11 +16,15 @@ var hash = (function(){
 
     function pred1(hashval){
         var last_char_value = hashval.charCodeAt(-1);
+        console.log("pred1\n");
+        console.log(last_char_value);
         return (last_char_value%2 == 1);
     }
 
     function pred0(hashval){
         var last_char_value = hashval.charCodeAt(-1);
+        console.log("pred0\n");
+        console.log(last_char_value);
         return (last_char_value%2 == 0);
     }
 

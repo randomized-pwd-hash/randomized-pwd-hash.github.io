@@ -163,7 +163,7 @@ var cash = (function(){
         var pwdhash = reproduce(pwd,accountname);
         //display hash in text box
         console.log(document.getElementById('hash'));
-        document.getElementById("hash") = pwdhash;
+        document.getElementById("hash").innerHTML = pwdhash;
     }
 
     return module;

@@ -162,6 +162,7 @@ var cash = (function(){
         var pwd = document.getElementById("pwd");
         var pwdhash = reproduce(pwd,accountname);
         //display hash in text box
+        console.log(document.getElementById('hash'));
         document.getElementById("hash") = pwdhash;
     }
 

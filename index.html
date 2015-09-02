@@ -5,8 +5,8 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!--Traditional Password Hash-->
-        <script src='two_round/hash.js'></script>
+        <!--Asymmetric key stretching-->
+        <script src='three_round_exp/cash.js'></script>
         <script src='traditional/md5.js'></script>
     </head>
     <body>
@@ -24,7 +24,8 @@
             <input type="text" name="hash" id='hash'>
             <br>
         </form>
-        <button type="button" id="account" onclick="hash.protocol()">Create Account</button>
+        <button type="button" id="createaccount" onclick="cash.createAccount()">Create Account</button>
+        <button type="button" id="generatehash" onclick="cash.generateHash()">Generate Hash</button>
 
 </div>
 

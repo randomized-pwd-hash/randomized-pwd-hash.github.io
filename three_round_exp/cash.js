@@ -62,14 +62,41 @@ var cash = (function(){
         if (S1.length != 3 || S2.length != 2 || S3.length != 4){
             console.log("Error in computeStoppingTimes!!\n");
         }
-       //return need to select predicate now
+        //need to pick stopping time
+        var stop1_num = Math.round(100*PROB1);
+        var stop2_num = Math.round(100*PROB2);
+        var stop3_num = Math.round(100*PROB3);
+
+        var stop_select = [];
+
+        for (i=0;i<stop1_num;i++){
+            stop_select.push(1);
+        }
+        for (i=0;i<stop2_num;i++){
+            stop_select.push(2);
+        }
+        for (i=0;i<stop3_num;i++){
+            stop_select.push(3);
+        }
+
+        var index = Math.round(Math.random()*stop_select.length);
+        var stoptime = stop_select[index];
+        if (stoptime == 1){
+            return S1;
+        } else if (stoptime == 2){
+            return S2;
+        } else {
+            return S3;
+        }
     }
 
     //note that for selectPredicates, n = 3
     function selectPredicates(pwd){
-
-
-
+        var S = computeStoppingTimes(pwd);
+        var index = Math.round(Math.random()*S.length);
+        var upred1 = function(hashval){ return pred(hashval,S[index][0])};
+        var upred2 = function(hashval){ return pred(hashval,S[index][1])};
+        return [upred1,upred2];
     }
 
     function findClientRecord(a){
@@ -110,6 +137,32 @@ var cash = (function(){
         user_predlist.push(value);
         //no need to generate hash with this sample website
         return;
+    }
+
+
+    //controller methods
+
+    module.createAccount = function(){
+        //getting account name
+        var accountname = document.getElementById("accountname");
+        if (findClientRecord(accountname) != -1){
+            alert("Account already exists!");
+            return;
+        }
+        //get pwd, run the create account protocol.
+        var pwd = document.getElementById("pwd");
+        createAccount(pwd,accountname);
+        alert("Account for " + accountname + " has been created!");
+        return;
+    }
+
+    module.generateHash = function(){
+        var accountname = document.getElementById("accountname");
+        //get pwd, run the generateHash procedure
+        var pwd = document.getElementById("pwd");
+        var pwdhash = reproduce(pwd,accountname);
+        //display hash in text box
+        document.getElementById("hash") = pwdhash;
     }
 
     return module;

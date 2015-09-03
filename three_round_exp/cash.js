@@ -173,8 +173,10 @@ var cash = (function(){
 
     module.debug = function(){
         var clientform = document.getElementById("clientform");
-        var accountname = clientform.elements["pwd"].value;
+        var accountname = clientform.elements["accountname"].value;
         console.log("accountname is " + accountname + "\n");
+        var pwd = clientform.elements["pwd"].value;
+        console.log("pwd is " + pwd + "\n");
         return;
     }
 

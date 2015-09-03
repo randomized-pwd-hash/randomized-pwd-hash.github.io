@@ -124,6 +124,7 @@ var cash = (function(){
             }
             H = pwdhash(H);
         }
+        console.log(H);
         return H;
     }
 

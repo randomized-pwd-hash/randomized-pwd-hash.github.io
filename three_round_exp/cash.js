@@ -142,28 +142,36 @@ var cash = (function(){
         return;
     }
 
+    function getAccount(){
+        var clientform = document.getElementById("clientform");
+        return clientform.elements["accountname"].value;
+    }
+
+    function getPwd(){
+        var clientform = document.getElementById("clientform");
+        return clientform.elements["pwd"].value;
+    }
 
     //controller methods
 
     module.createAccount = function(){
         //getting account name
-        var accountname = document.getElementById("accountname");
+        var accountname = getAccount();
         if (findClientRecord(accountname) != -1){
             alert("Account already exists!");
             return;
         }
         //get pwd, run the create account protocol.
-        var pwd = document.getElementById("pwd");
+        var pwd = getPwd();
         createAccount(pwd,accountname);
         alert("Account for " + accountname + " has been created!");
         return;
     }
 
     module.generateHash = function(){
-        var clientform = document.getElementById("clientform");
-        var accountname = clientform.elements["accountname"].value;
+        var accountname = getAccount();
         console.log("accountname is " + accountname + "\n");
-        var pwd = clientform.elements["pwd"].value;
+        var pwd = getPwd();
         console.log("pwd is " + pwd + "\n");
         //get pwd, run the generateHash procedure
         var pwdhash = reproduce(pwd,accountname);

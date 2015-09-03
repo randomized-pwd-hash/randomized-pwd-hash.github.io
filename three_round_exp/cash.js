@@ -125,6 +125,7 @@ var cash = (function(){
             H = pwdhash(H);
         }
         console.log(H);
+        console.log("hello\n");
         return H;
     }
 

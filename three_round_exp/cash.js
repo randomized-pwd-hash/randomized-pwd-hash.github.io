@@ -110,6 +110,7 @@ var cash = (function(){
 
     //computing user hash
     function reproduce(pwd,a){
+        console.log("running reproduce\n");
         //need to locate account index
         var value = findClientRecord(a);
         if (value == -1){
@@ -164,7 +165,7 @@ var cash = (function(){
         var pwd = document.getElementById("pwd");
         var pwdhash = reproduce(pwd,accountname);
         //display hash in text box
-        console.log(document.getElementById('hash'));
+        console.log(document.getElementById('hash').innerHTML);
         document.getElementById("hash").innerHTML = pwdhash;
     }
 

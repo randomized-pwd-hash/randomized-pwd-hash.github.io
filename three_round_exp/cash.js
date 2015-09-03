@@ -171,6 +171,14 @@ var cash = (function(){
         document.getElementById("hash").innerHTML = pwdhash;
     }
 
+    module.debug = function(){
+        var accountname = document.getElementById("accountname").innerHTML;
+        console.log("accountname is " + accountname + "\n");
+        var pwd = document.getElementById("pwd").innerHTML;
+        console.log("pwd is " + pwd + "\n");
+        return;
+    }
+
     return module;
 
 }());

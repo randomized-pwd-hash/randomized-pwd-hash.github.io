@@ -160,11 +160,12 @@ var cash = (function(){
     }
 
     module.generateHash = function(){
-        var accountname = document.getElementById("accountname").innerHTML;
+        var clientform = document.getElementById("clientform");
+        var accountname = clientform.elements["accountname"].value;
         console.log("accountname is " + accountname + "\n");
+        var pwd = clientform.elements["pwd"].value;
+        console.log("pwd is " + pwd + "\n");
         //get pwd, run the generateHash procedure
-        var pwd = document.getElementById("pwd").innerHTML;
-        console.log("pwd is "+pwd+"\n");
         var pwdhash = reproduce(pwd,accountname);
         //display hash in text box
         console.log(document.getElementById('hash').innerHTML);

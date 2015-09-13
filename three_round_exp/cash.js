@@ -133,7 +133,7 @@ var cash = (function(){
     }
 
     function genSalt(a){
-        var rbits = Math.round(100000*rand());
+        var rbits = Math.round(100000*Math.random());
         var rbitstring = rbits.toString();
         var x = a + rbitstring;
         var s = str_md5(x);

@@ -164,15 +164,17 @@ var cash = (function(){
     }
 
     function addAccount(accountname){
-        var x = document.getElementById("selectAccount");
+        var selectform = document.getElementById("selectAccount");
         var option = document.createElement("option");
         option.text = accountname;
-        x.add(option);
+        selectform.add(option);
         return;
     }
 
     function getExistingAccount(){
-        return;
+        var selectform = document.getElementById("selectAccount");
+        console.log(selectform.selectedIndex);
+        console.log("\n");
     }
 
     //controller methods
@@ -194,7 +196,7 @@ var cash = (function(){
     }
 
     module.generateHash = function(){
-        var accountname = getAccount();
+        var accountname = getExistingAccount();
         console.log("accountname is " + accountname + "\n");
         var pwd = getPwd();
         console.log("pwd is " + pwd + "\n");

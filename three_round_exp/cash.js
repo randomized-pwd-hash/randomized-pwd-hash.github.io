@@ -1,7 +1,7 @@
 var cash = (function(){
 
     var module = {};
-    var DET_ROUNDS = 1000000;
+    var DET_ROUNDS = 100000;
     //for epsilon = 1.2
     var W = 5.302;
     var PROB1 = 0.566;
@@ -173,8 +173,8 @@ var cash = (function(){
 
     function getExistingAccount(){
         var selectform = document.getElementById("selectAccount");
-        console.log(selectform.selectedIndex);
-        console.log("\n");
+        var accountIndex = selectform.selectIndex;
+        return user_accountlist[accountIndex];
     }
 
     //controller methods

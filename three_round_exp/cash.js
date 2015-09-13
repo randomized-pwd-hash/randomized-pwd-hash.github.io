@@ -117,24 +117,35 @@ var cash = (function(){
             alert("Account does not exist!\n");
             return;
         }
-        //value is now a sequence of predicates
-        var H = pwdhash(pwd);
+        var predicates = value[0];
+        var salt = value[1];
+        //predicates is now a sequence of predicates
+        var H = pwdhash(pwd+salt);
         for (m=0;m<2;m++){
-            if (value[m](H)){
+            if (predicates[m](H)){
                 return H;
             }
-            H = pwdhash(H);
+            H = pwdhash(H+salt);
         }
         console.log(H);
         console.log("hello\n");
         return H;
     }
 
+    function genSalt(a){
+        var rbits = round(100000*rand());
+        var rbitstring = rbits.toString();
+        var x = a + rbitstring;
+        var s = str_md5(x);
+        return s;
+    }
+
     function createAccount(pwd,a){
         //generate salt
-        var predicates = selectPredicates(pwd);
+        var s = genSalt(a);
+        var predicates = selectPredicates(pwd + s);
         var key = a;
-        var value = predicates; //and salt
+        var value = [predicates,s]; //and salt
         //storing values on client (or on dropbox)
         user_accountlist.push(key);
         user_predlist.push(value);

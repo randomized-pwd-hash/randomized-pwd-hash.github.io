@@ -153,7 +153,7 @@ var cash = (function(){
         return;
     }
 
-    function getAccount(){
+    function getNewAccount(){
         var clientform = document.getElementById("clientform");
         return clientform.elements["accountname"].value;
     }
@@ -163,11 +163,23 @@ var cash = (function(){
         return clientform.elements["pwd"].value;
     }
 
+    function addAccount(accountname){
+        var x = document.getElementById("selectAccount");
+        var option = document.createElement("option");
+        option.text = accountname;
+        x.add(option);
+        return;
+    }
+
+    function getExistingAccount(){
+        return;
+    }
+
     //controller methods
 
     module.createAccount = function(){
         //getting account name
-        var accountname = getAccount();
+        var accountname = getNewAccount();
         if (findClientRecord(accountname) != -1){
             alert("Account already exists!");
             return;
@@ -176,6 +188,8 @@ var cash = (function(){
         var pwd = getPwd();
         createAccount(pwd,accountname);
         alert("Account for " + accountname + " has been created!");
+        //need to update list of accounts
+        addAccount(accountname);
         return;
     }
 

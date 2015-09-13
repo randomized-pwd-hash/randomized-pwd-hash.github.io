@@ -174,6 +174,8 @@ var cash = (function(){
     function getExistingAccount(){
         var selectform = document.getElementById("selectAccount");
         var accountIndex = selectform.selectIndex;
+        console.log(user_accountlist[accountIndex]);
+        console.log("\n");
         return user_accountlist[accountIndex];
     }
 

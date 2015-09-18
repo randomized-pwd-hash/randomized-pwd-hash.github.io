@@ -38,6 +38,7 @@ var cash = (function(){
         for (k=1;k<ROUNDS;k++){
             hashed_pwd = SHA256.hash(password);//str_md5(hashed_pwd);
         }
+        console.log(hashed_pwd);console.log("\n");
         return hashed_pwd;
     }
 

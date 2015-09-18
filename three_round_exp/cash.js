@@ -1,7 +1,7 @@
 var cash = (function(){
 
     var module = {};
-    var DET_ROUNDS = 100000;
+    var DET_ROUNDS = 10000;
     //for epsilon = 1.2
     var W = 5.302;
     var PROB1 = 0.566;

@@ -100,8 +100,11 @@ Sha256.hash = function(msg) {
         H[7] = (H[7]+h) & 0xffffffff;
     }
 
-    return Sha256.toHexStr(H[0]) + Sha256.toHexStr(H[1]) + Sha256.toHexStr(H[2]) + Sha256.toHexStr(H[3]) +
+    var result = Sha256.toHexStr(H[0]) + Sha256.toHexStr(H[1]) + Sha256.toHexStr(H[2]) + Sha256.toHexStr(H[3]) +
            Sha256.toHexStr(H[4]) + Sha256.toHexStr(H[5]) + Sha256.toHexStr(H[6]) + Sha256.toHexStr(H[7]);
+    console.log(result);
+    console.log('\n');
+    return result;
 };
 
 

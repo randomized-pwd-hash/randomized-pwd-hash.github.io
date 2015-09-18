@@ -216,6 +216,14 @@ var cash = (function(){
         return;
     }
 
+    module.pwdhash = function(){
+        var pwd = getPwd();
+        var hash = SHA256.hash(pwd);
+        console.log(hash);
+        console.log('\n');
+        return hash;
+    }
+
     return module;
 
 }());

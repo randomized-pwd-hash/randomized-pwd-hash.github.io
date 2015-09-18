@@ -34,7 +34,7 @@ var cash = (function(){
     var ospace = generateOutputSpace();
 
     function pwdhash(password){
-        var hashed_pwd = str_md5(password);
+        var hashed_pwd = SHA256.hash(password);//str_md5(password);
         for (k=1;k<ROUNDS;k++){
             hashed_pwd = str_md5(hashed_pwd);
         }

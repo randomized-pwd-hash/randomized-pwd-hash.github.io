@@ -9,11 +9,6 @@
         <script src='three_round_exp/cash.js'></script>
         <script src='traditional/md5.js'></script>
         <script src='sha256.js'></script>
-        <script type="text/javascript">
-                $(document).bind('mobileinit',function(){
-                            $.mobile.loadingMessage = false;
-                                })
-                            </script>
     </head>
     <body>
 
@@ -37,7 +32,6 @@
         </form>
         <button type="button" id="createaccount" onclick="cash.createAccount()">Create Account</button><br>
         <button type="button" id="generatehash" onclick="cash.generateHash()">Generate Hash</button><br>
-        <button type="button" id="getSHA256" onclick="cash.pwdhash('hi')">Generate SHA256</button><br>
 
 </div>
 

@@ -47,4 +47,6 @@ div.nicebox {
     padding: 25px;
     border: 25px solid navy;
     margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
                     }

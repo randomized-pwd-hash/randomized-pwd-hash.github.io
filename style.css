@@ -47,11 +47,14 @@ div.nicebox {
     padding: 25px;
     border: 25px solid navy;
     margin: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    float: right;
                     }
 
 p.nicetitle {
     text-align: center;
     font-size: 30px;
+}
+
+div.left_column {
+    margin-right: 170px;
 }

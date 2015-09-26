@@ -12,12 +12,13 @@
         <!-- Adding css -->
         <link rel="stylesheet" href='style.css'></link>
         <link rel="stylesheet2" href='pm.css'></link>
+        <link rel="stylesheet3" href='mystyle.css'></link>
     </head>
     <body>
 
         <div data-role='page' data-title="login" id="login">
 
-            <form id="clientform">
+            <form id="clientform"><div class='nicebox'>
             Existing Accounts: <br>
             <select id="selectAccount">
 
@@ -36,6 +37,7 @@
         <button type="button" id="createaccount" onclick="cash.createAccount()">Create Account</button><br>
         <br>
         <button type="button" id="generatehash" onclick="cash.generateHash()">Generate Hash</button><br>
+    </div>
 
 </div>
 

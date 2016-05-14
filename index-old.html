@@ -18,7 +18,40 @@
 
         <div data-role='page' data-title="login" id="login">
             <p class='nicetitle'>Client CASH: Protecting Master Passwords</p>
-        </div>
+
+            <form id="clientform"><div class='nicebox'>
+            Existing Accounts:
+            <select id="selectAccount">
+
+            </select>
+            <br>
+            New Account: <br>
+            <input type="text" name="accountname" id='accountname'>
+            <br>
+            Password: <br>
+            <input type="text" name="pwd" id='pwd'>
+            <br>
+            Hash: <br>
+            <p id='hash'>   </p>
+            <br>
+        </form>
+        <button type="button" id="createaccount" onclick="cash.createAccount()">Create Account</button><br>
+        <br>
+        <button type="button" id="generatehash" onclick="cash.generateHash()">Generate Hash</button><br>
+    </div>
+
+    <div class='left_column'>
+        <br><br>
+        Instructions: <br>
+        <br>
+        New Account: If no account has already been created, the user must make a new account. Simply enter the account name (the server name, not the user name) and the password so that the algorithm can assign user settings. <br>
+        <br>
+        Generate Hash: Select an account from the drop down menu, and enter a candidate password. The
+        value of the hash will be displayed. This version of Client CASH uses the hash SHA256.
+
+    </div>
+
+</div>
 
 </body>
 </html>
